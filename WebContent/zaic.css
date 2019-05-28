@@ -1,0 +1,152 @@
+@import url(reset.css);
+/* ==방== */
+#header{
+    height: 80px;
+    display: flex;
+    position: relative;
+    border: #979797;
+}
+/* --main-------------  */
+main{
+    
+    border-top: 0.5px solid #979797;
+    background: yellow;
+    color: rgb(252, 252, 252);
+    min-height: 200px;
+}
+main .main-center{
+    width: 880px;
+    margin: auto;
+}
+#main .notice-menu{
+    display: flex;
+}
+#main .notice-menu>section{
+    display: flex;
+}
+/* ---footer------------ */
+#footer{
+    min-height: 300px;
+    background: rgb(248, 248, 248);
+}
+    #footer .footer-menu{
+        margin: auto;
+        width: 600px;
+    }
+    .footer-menu-top{
+        display: inline-block;
+    }
+    .footer-menu-top>ul{
+        display: flex;
+    }
+    .footer-menu-last>ul{
+        display: flex;
+        justify-content: center;
+    }
+/* ==컨텐츠 == */
+body{
+    font-family: "고딕","돋음",sans-serif;
+    font-size: 12px;
+}
+
+.h-hidden{
+    display: none;
+}
+#header>h1{
+    background: url("img/zigbang-logo.png") no-repeat 20px ;
+    text-indent: -999px;
+    overflow: hidden;
+    width: 122px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+}
+#header>div{
+    margin-left: auto;
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#header>.sreach-list{
+    display: inline-block;
+    position: absolute;
+    left: 180px;
+    top: 36px;
+}
+#header>.sreach-list>ul{
+    display: flex;
+
+}
+#header>.sreach-list>ul>li>div{
+    font-family: "고딕","돋음",sans-serif;
+    font-size: 15px;
+    color: #000000;
+}
+#header>.sreach-list>ul li{
+    overflow: hidden;
+    padding-left: 20px;
+}
+.d-font{
+    font-family: "맑은 고딕","고딕",sans-serif;
+    font-size: 11px;
+    color:#979797;
+}
+.ad{
+    display: flex;
+}
+.ad a{
+    background: url("img/btn-agent-register.png") no-repeat center;
+    width: 150px;
+    height: 50px;
+    text-indent: -999px;
+    overflow: hidden; 
+    background-size: contain;
+}
+#login-menu{
+   position: relative;
+   top: 30px;
+}
+#login-menu>ul{
+    display:flex;
+    width: 180px;
+}
+#login-menu>ul>li{
+background: url("img/bg-title-sp.png") no-repeat 6px center;
+    padding-left: 12px;
+    overflow: hidden;
+    
+}
+#login-menu>ul>li:first-child{
+    background: none;
+}
+/* --main-------- */
+#main{
+    color: #000000;
+}
+ 
+/* --footer------ */
+.footer-menu-top>ul>li{
+    padding-left: 12px;
+    background: url("img/bg-title-sp.png") no-repeat 6px;
+    overflow: hidden;
+}
+.footer-menu-top>ul>li:first-child{
+    background: none;
+}
+
+.footer-menu-last>ul>li{
+    overflow: hidden;
+    text-align: center;
+}
+
+#main .app-menu>h1{
+    font-size: 28px;
+}
+#main .search-menu{
+    background: url(img/main-2018.png) no-repeat center;
+}
+
+
+

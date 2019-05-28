@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 10px">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- header block------------------------------------------------------------------------------------------- -->
+    <header id="header">
+        <!-- <div style="background: blue; width: 100px;">asdwe</div> -->
+        <div class="content-box"> 
+            <h1 id="logo">뉴렉처 온라인</h1>
+            
+            <section id="header-list">
+                <h1 class="d-none">머릿말</h1>
+                <nav id ="main-menu">
+                    <h1 class="d-none">메인 메뉴</h1>
+                    <ul class ="menu-list">
+                        <li><a href="">학습가이드</a></li>
+                        <li><a href="">강좌선택</a></li>
+                        <li><a href="">AnswerIs</a></li>
+                    </ul>
+                </nav>
+                <section id ="lecture-search-form">
+                    <h1 class="d-none">강좌검색 폼</h1>
+                    <form action="" class ="menu-list">
+                        <label for="">과정검색</label>
+                        <input type="text">
+                        <input type="submit" value="검색">
+                    </form>
+                </section>
+                    <nav id ="member-menu">
+                        <h1 class="d-none">회원메뉴</h1>
+                        <ul class ="menu-list">
+                            <li><a href="">HOME</a></li>
+                            <li><a href="">로그인</a></li>
+                            <li><a href="">회원가입</a></li>
+                        </ul>
+                    </nav >
+                    <nav id="direct-menu">
+                        <h1 class="d-none">자주사용하는 메뉴</h1>
+                        <ul>
+                            <li>마이페이지</li>
+                            <li>고객센터</li>
+                        </ul>
+                    </nav>
+            </section>
+        </div>
+    </header>
+<!-- visual block------------------------------------------------------------------------------------------- -->
+<div id="visual">
+    <div class="content-box" style = "position:relative">
+            <!-- <img src="https://i.pinimg.com/236x/bc/86/9c/bc869cbe73bab4b780b1dc50b2c55bda--image-c-spongebob.jpg" > -->
+            <!-- <div style =" width:900px;height:400px; border: 1px solid red;
+                background: url(https://item.kakaocdn.net/do/490d3fcfcef6c2b69b380d4b66328e53f43ad912ad8dd55b04db6a64cddaf76d)no-repeat;
+                background-size: cover ;
+                background-attachment: fixed;
+                ">
+            </div>
+        -->
+        <span style="left:100px;top:100px;position: absolute">웅이만세</span>
+        <span style="margin-left: -100px">귀욤웅이</span>
+    </div>
+    <!-- <img src="https://item.kakaocdn.net/do/490d3fcfcef6c2b69b380d4b66328e53f43ad912ad8dd55b04db6a64cddaf76d" style="opacity:  0.5;" > -->
+</div>
+<!-- body block------------------------------------------------------------------------------------------- -->
+    <div id="body">
+        <div class="content-box">
+            <aside>
+              
+                <h1>고객센터</h1>
+                <nav id="coustmer-menu">
+                    <h1>고객센터메뉴</h1>                   
+                    <ul>
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">자주하는 질문</a></li>
+                        <li><a href="">수강-문의</a></li>
+                        <li><a href="">이벤트</a></li>
+                    </ul>
+                </nav>
+                <nav id="coworker-menu">
+                    <h1>협력업체</h1>
+                    <ul>
+                        <li><a href="">노트펍스</a></li>
+                        <li><a href="">나무랩연구소</a></li>
+                        <li><a href="">한빛미디어</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            
+            <main id="main">
+                <section>
+                    <h1>공지사항</h1>
+                    <section id="breadcrumb">
+                        <h1 class="d-none">경로</h1>
+                        <ol>
+                            <li>home</li>
+                            <li>고객센터</li>
+                            <li>공지사항</li>
+                        </ol>
+                    </section>
+                    <section id="notice">
+                        <h1 class="d-none">공지사항 목록</h1>
+                        <table>
+                            <thead>
+                                <tr class="notice-header">
+                                    <td class="num">번호</td>
+                                    <td class="title">제목</td>
+                                    <td class="writer">작성자</td>
+                                    <td class="date">작성일</td>
+                                    <td class="hit">조회수</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td class="title">dfdfdfdfdfdfdfdfdfdffdffdfdfdfdfㅇㄹㅇㄹㅇㄹㄹㅇㅇdf자바 백엔드 개발자들을 위한 새로운 강의를 녹음 중에 있습니다.</td>
+                                    <td class="writer">newlec</td>
+                                    <td class="date">2019-02-18</td>
+                                    <td class="hit">258</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2</td>
+                                    <td class="title">유투브에 jQuery와 Angular 프레임워크 1강이 등록되었습니다.</td>
+                                    <td class="writer">newlec</td>
+                                    <td class="date">2019-02-18</td>
+                                    <td class="hit">177</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td class="title">앞으로 모든 강의를 무료로 새로 시작합니다.</td>
+                                    <td class="writer">newlec</td>
+                                    <td class="date">2018-11-18</td>
+                                    <td class="hit">768</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section class="page-index">
+                        <h1 class="d-none" >페이지 정보</h1>
+                        <div>
+                            <span class="color-highlight font-bold">1</span>/ 1 pages
+                        </div>
+                    </section>
+                    <section id="pager">
+                        <h1 class="d-none">페이지</h1>
+                        <div>
+                            <div class="icon-prev-pager">이전</div>
+                            <ul>
+                                <li class="current">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                            </ul>
+                            <div class="icon-next-pager">다음</div>
+                        </div>
+                    </section>
+                </section>
+            </main>
+        </div>
+    </div>
+    <!-- footer block------------------------------------------------------------------------------------------- -->
+    <footer id="footer">
+        <div class="content-box">
+        <!-- <section>
+                <h1>회사정보</h1>
+                <section>
+                    <h3>소유권자정보</h3>
+                    <dl>
+                        <dt>주소:</dt>
+                        <dd>서울특별시 마포구 토정로35길 11, 인우빌딩 5층 266호</dd>
+                        <dt>관리자메일:</dt>
+                        <dd>admin@newlecture.com</dd>
+                        <dt>사업자 등록번호:</dt>
+                        <dd>132-18-46763</dd>
+                        <dt>통신 판매업:</dt>
+                        <dd>신고제 2013-서울강동-0969 호</dd>
+                        <dt>상호:</dt>
+                        <dd>뉴렉처</dd>
+                        <dt>대표:</dt>
+                        <dd>박용우</dd>
+                        <dt>전화번호:</dt>
+                        <dd>070-4206-4084</dd>
+                    </dl>
+                </section>
+                <section>
+                    <h3>저작권자 정보</h3>
+                    <div>
+                        Copyright ⓒ newlecture.com 2012-2014 All Right Reserved. Contact admin@newlecture.com for more
+                        information
+                    </div>
+                </section>
+            </section> -->
+        </div>
+    </footer>
+</body>
+
+</html>

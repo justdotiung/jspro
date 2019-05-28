@@ -1,0 +1,440 @@
+@import url(reset.css);
+/* =====room방===== */
+#main-menu-list
+{
+    --color: blue;
+}
+.menu-list li
+{
+    --color: blueviolet;
+    --display: inline-block;
+}
+.content-box{
+    margin: auto;
+    --margin-top: 100px;
+    width: 960px;
+    height: inherit;
+    min-height: inherit;
+    --background: rgb(77, 26, 11);
+    --opacity: 0.5;
+    display: flex;
+    
+}
+.clear-fix::after{
+    content: ".";
+    height: 0px;
+    overflow: hidden;
+    clear: left;
+    display: block;
+}
+.d-none{
+    display: none;
+}
+/* 강조색의 의미 클래스명을 강조해주면 된다 */
+.color-highlight{
+    color:#ff6a00;
+}
+.font-bold{
+    font-weight: bold;
+}
+.icon-next-pager{
+    /* 텍스트 투명도   */
+    color: transparent;
+    text-indent: -999px;
+    overflow: hidden;
+    background: url("../../imagers/btn-next.png") no-repeat center;
+    --background-size: contain;
+    width: 15px;
+}
+.icon-prev-pager{
+    --color: transparent;
+    text-indent: -999px;
+    overflow: hidden;
+    background: url("../../imagers/btn-prev.png") no-repeat center;
+}
+/* =================================== */
+#header
+{
+    height: 70px;
+    --background: rgb(255, 160, 160);
+   
+}
+
+/* ----------------------------- */
+#visual
+{
+    height: 171px;
+    --background:#313131  url("../../imagers/bg-visual.png") no-repeat center;
+    border-top: 3px solid #8cba34;
+}
+    #visual .content-box{
+        height: 171px;
+    --background:#313131  url("../../imagers/bg-visual.png") no-repeat center;
+    --border-top: 3px solid #8cba34;
+    }
+    /* ------------------------------- */
+#body
+{
+    min-height: 300px;
+    --background: rgb(255, 56, 56);
+    border-top: 5px solid #8cba34;
+    margin-top: 1px;
+}
+    #body>.content-box{
+        display: flex;
+        --flex-direction: row;
+        background: url(../../imagers/bg-body.png) 
+        repeat-y;
+        padding-bottom: 50px;
+    }
+    #body>.content-box>aside{
+        
+        min-height: inherit;
+        width: 205px;
+        background: url(../../imagers/bg-aside-title.png)
+        no-repeat
+        right top;
+ 
+    }
+    #main{
+        box-sizing: border-box;
+        min-height: inherit;
+        width: 755px;
+        --background: blue;
+        padding-left: 45px;
+        padding-top: 45px;
+     
+    }
+    
+
+    /* ------------------------------ */
+#footer
+{
+    height: 100px;
+    background:#313131;
+}
+
+/* ====컨텐츠_스타일+컨텐츠_블럭=====가구================== */
+/* 텍스트 기본스타일 색상 폰틎ㅇ류 크기 데코  */
+body{
+    font-family: "돋움",Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color: #979797;
+}
+#logo{
+    background: url("../../imagers/logo.png") no-repeat center ;
+    
+    width: 182px;
+    height: 35px;
+    border: 1px solid red;
+    text-indent: -200px;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    top:23px;
+    left: 0;
+}
+#header-list{
+    display: flex;
+}
+#main-menu{
+    position: absolute;
+    left:200px;
+    top: 27px;
+    display: inline-block;
+}
+#main-menu>.menu-list{
+
+    display: flex;
+}
+
+#main-menu>.menu-list>li{
+    display: inline-block;
+    font-family: "맑은고딕","고딕",sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color:#000000;
+    background: url("../../imagers/bg-main-menu-vsp.png") no-repeat 12px center;
+    padding-left: 24px;
+}
+
+#lecture-search-form{
+    display: inline-block;
+    width: 250px;
+    height: 25px;
+    border: 5px solid #8CBA34;
+    
+}
+
+#main-menu>ul>li:first-child{
+    padding: 0px;
+    background: none;
+}
+#member-menu{
+    display: inline-block;
+    position: absolute; 
+    top: 20px;
+    right: 0;
+}
+#member-menu>.menu-list{
+    display: flex;
+}
+
+#member-menu>.menu-list>li{
+    padding-left: 12px;
+    background: url("../../imagers/bg-member-menu-sp.png")no-repeat 6px center; 
+}
+
+#member-menu>.menu-list>li:first-child {
+    background: none;
+    padding: 0;
+}
+
+#direct-menu{
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+#direct-menu>ul{
+    display: flex;
+}
+#direct-menu>ul>li{
+    width: 72px;
+    height: 17px;
+    text-indent: -200px;
+    overflow: hidden;
+}
+#direct-menu>ul>li:first-child{
+    background: url("../../imagers/txt-mypage.png") no-repeat center;
+}
+#direct-menu>ul>li:last-child{
+    background: url("../../imagers/txt-customer.png")no-repeat center;
+}
+#lecture-search-form {
+    position: absolute;
+    top: 21px;
+    left: 468px;
+}
+
+
+#lecture-search-form input[type="submit"]{
+    width: 31px;
+    --height: 25px;
+    background: url("../../imagers/btn-zoom.png") no-repeat center;
+   
+    padding: 0px;
+    border: none;
+    border-left: 1px solid #8CBA34;
+    text-indent: -999px;
+    
+}
+
+#lecture-search-form label{
+    width: 55px;
+    --height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: bold;
+    background: yellow;
+    display: inline-block;
+}
+#lecture-search-form>form{
+    display: flex;
+}
+
+#lecture-search-form input[type="text"]{
+    background: red;
+    width: calc(100% - 55px - 31px);/*222px;*/
+    height: 25px;
+    border: 0px;
+}
+#header .content-box{
+    position: relative;
+}
+/* =aside======================= */
+#coustmer-menu{
+    font-family: "맑은 고딕", "고딕", sans-serif;
+    font-weight: bold;
+    color: #808080;
+}
+.content-box>aside>h1{
+    font-size: 24px;
+    color: #000000;
+    font-family: "맑은고딕" , "고딕" , sans-serif;
+}
+#coustmer-menu>h1{
+    color: #ffffff;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px 1px #000000;
+    background: url("../../imagers/bg-aside-sub-title.png") no-repeat 0px 0px;
+}
+#coustmer-menu li{
+    background: url("../../imagers/bg-aside-menu-hsp.png")
+    no-repeat bottom;
+    height: 26px;
+    line-height: 26px;
+}
+#coustmer-menu a{
+    padding-left: 26px;
+    background: url("../../imagers/icon-current.png") 
+    no-repeat 12px center;
+    text-decoration: none;
+}
+#coworker-menu>h1{
+    font-family: "맑은 고딕","고딕",sans-serif;
+    font-size: 13px;
+    color: #000000;
+    padding-left: 26px;
+    background: url("../../imagers/icon-recommend.png")no-repeat;
+}
+
+#coworker-menu>ul>li{
+    width: 180px;
+    height: 50px;
+    text-indent: -999px;
+    overflow: hidden;
+}
+#coworker-menu>ul>li:first-child{
+    background: url("../../imagers/notepubs.png") no-repeat center;
+    }
+    #coworker-menu>ul>:nth-child(2){
+        background: url("../../imagers/namoolab.png") no-repeat center;
+    }
+    #coworker-menu>ul>li:last-child{
+        background: url("../../imagers/hanbit.png") no-repeat center;
+    }
+        /* =========aside 가구배치 */
+
+   
+    .content-box>aside>h1{
+       margin-top: 43px;
+    }
+    #coustmer-menu>h1{
+        margin-top: 45px;
+    }
+    #coworker-menu>h1{
+        margin-top: 20px;
+    }
+/*==== main 가구=============== */
+#notice table{
+    /*  */
+    border-top:2px #8CBA34 solid;
+    border-spacing: 0px;
+    width: 100%;
+    /* fixed 내가원하는 값 , auto = default */
+    table-layout: fixed;
+    /* table 의 셀사이의 벽을 하나로 합친다. */
+    --border-collapse: collapse;
+}
+
+#notice table tr{
+    height: 30px;
+    line-height: 30px;
+}
+#notice table td{
+    text-align: center;
+    border-bottom: #e9e9e9 1px solid;
+    padding: 0px;
+}
+            #notice table .num{
+                text-align: center;
+                width: 60px;
+            }
+            #notice table .title{
+                width: 400px;
+                /* 스페이스바로 인해서 구분자를 나눠 줄바꿈을 안하게 하는것. */
+                white-space: nowrap;
+                /* over-flow 는 넘어가는부분을 가르킨다 */
+                overflow: hidden;
+                /* 텍스트 넘어가는부분 (ellipsis) 생략... */
+                text-overflow: ellipsis;
+            }
+            #notice table tbody .title{
+                /* 텍스트 정렬 */
+                text-align: left;
+                /* 텍스트 들여쓰기 */
+                text-indent: 10px;
+                
+                
+            }
+            #notice table tbody .title span{
+  				font-weight:bold;         
+                color: red;
+                
+            }
+            #notice table .writer{
+                width: 100px;
+            }
+            #notice table .date{
+                width: 100px;
+            }
+            #notice table .hit{
+                width: 60px;
+            }
+            .notice-header{
+                background: #f5f5f5;
+            }
+            .notice-header td{
+                background: url("../../imagers/bg-title-sp.png") no-repeat left center;
+
+            }
+            .notice-header td:first-child{
+                background: none;
+            }
+#breadcrumb{
+    display: inline-block;
+    float: right;
+}
+#breadcrumb ol{
+    display: flex;
+}
+#main section ol li{
+    padding-left: 10px;
+    background: url("../../imagers/icon-path.png")no-repeat left center;
+    /* list ol 숫자 제거 */
+    list-style: none;
+    /*  */
+    display: list-item;
+}
+#main section ol li:first-child{
+    background: url("../../imagers/icon-home.png") no-repeat left center;
+    padding-left: 20px;
+}
+/* fisrt-child 는 같은 형제들의 위치에서만 지정이 가능하다. */
+#main>section>h1{
+    font-family: 맑은 고딕, 고딕, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: #646464;
+    padding-left: 25px;
+    background: url("../../imagers/icon-main-title.png") no-repeat left center;
+}
+.page-index{
+    display: inline-block;
+}
+
+/* style="font-size: 30px;" */
+/* style="font-size:  2rem" */
+
+#pager>div{
+    display: flex;
+}
+#pager>div>ul{
+    display: flex;
+}
+#pager>div>ul>li{
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    /* 기준이 택스트 가운데와 라인의 가운데가된다. */
+    line-height:15px;
+}
+#pager li.current{
+    color:#ff6a00;
+    font-weight: bolder;
+}
