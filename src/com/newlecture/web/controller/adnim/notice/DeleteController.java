@@ -1,4 +1,4 @@
-package com.newlecture.web.controller.notice;
+package com.newlecture.web.controller.adnim.notice;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.dao.oracle.OracleNoticeDao;
 
-//가상의 매핑주소 
-@WebServlet("/root/notice/list")
-public class ListController extends HttpServlet{
+@WebServlet("/root/notice/del")
+public class DeleteController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NoticeDao o = new OracleNoticeDao();
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		
+		NoticeDao noticeDao = new OracleNoticeDao();
+		
 		try {
-			req.setAttribute("list", o.getList());
+			noticeDao.delete(id);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,8 +29,7 @@ public class ListController extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//가상의 주소에서 상대경로
-		req.getRequestDispatcher("/WEB-INF/view/notice/list.jsp").forward(req, resp);
 		
+		resp.sendRedirect("list");
 	}
 }

@@ -1,47 +1,37 @@
-package com.newlecture.web.dao.oracle;
-
-import java.util.Date;
+package com.newlecture.web.entity;
 
 public class Member {
+
 	private String id;
-	private String pwd;
+	private String pw;
 	private String name;
 	private int gender;
 	private int age;
 	private String birthday;
 	private String phone;
-	private Date regdate;
+	private String regdate;
+	private String boss_Id;
+	private String type;
 	
-	public Member(String id, String pwd, String name, int gender, int age, String birthday, String phone) {
+	public Member(String id, String pw) {
 		super();
 		this.id = id;
-		this.pwd = pwd;
-		this.name = name;
-		this.gender = gender;
-		this.age = age;
-		this.birthday = birthday;
-		this.phone = phone;
+		this.pw = pw;
 	}
 
-	public Member(String id, String pwd, String name, int gender, int age, String birthday, String phone,
-			Date regdate) {
+	public Member(String id, String pw, String name, int gender, int age, String birthday, String phone, String regdate,
+			String boss_Id, String type) {
 		super();
 		this.id = id;
-		this.pwd = pwd;
+		this.pw = pw;
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
 		this.birthday = birthday;
 		this.phone = phone;
 		this.regdate = regdate;
-	}
-
-	
-
-	public Member(String id, String pwd) {
-		super();
-		this.id = id;
-		this.pwd = pwd;
+		this.boss_Id = boss_Id;
+		this.type = type;
 	}
 
 	public String getId() {
@@ -52,12 +42,12 @@ public class Member {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPw() {
+		return pw;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 
 	public String getName() {
@@ -100,20 +90,28 @@ public class Member {
 		this.phone = phone;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", age=" + age
-				+ ", birthday=" + birthday + ", phone=" + phone + ", regdate=" + regdate + "]";
+	public String getBoss_Id() {
+		return boss_Id;
 	}
 
+	public void setBoss_Id(String boss_Id) {
+		this.boss_Id = boss_Id;
+	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 }

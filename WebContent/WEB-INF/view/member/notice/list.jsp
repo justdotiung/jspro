@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Document</title>
-<link href="../css/style.css" type="text/css" rel="stylesheet">
+<link href="/root/css/style.css" type="text/css" rel="stylesheet">
 <style>
 	#footer{
 	width:100%;
@@ -26,7 +26,7 @@
 
 <body>
 	<!-- header block------------------------------------------------------------------------------------------- -->
-	<%--  <jsp:include page="../inc/header.jsp"/>--%>
+	 <jsp:include page="../../inc/header.jsp"/>
 	<!-- visual block------------------------------------------------------------------------------------------- -->
 	<div id="visual">
 		<div class="content-box7" style="position: relative">
@@ -46,9 +46,9 @@
 	<!-- body block------------------------------------------------------------------------------------------- -->
 	<div id="body">
 		<div class="content-box1">
-		<jsp:include page="../inc/aside.jsp"/>
+		<jsp:include page="../../inc/aside.jsp"/>
 
-		<!--	<main id="main">  
+			<main id="main">  
 			<section>
 				<h1>공지사항</h1>
 				<section id="breadcrumb">
@@ -74,6 +74,7 @@
 
 				<section id="notice">
 					<h1 class="d-none">공지사항 목록</h1>
+					<form action="" method="post">
 					<table>
 						<thead>
 							<tr class="notice-header">
@@ -85,20 +86,53 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="n" items="${list}">
+						<style>
+							.even{
+								background: beige;
+							}
+						</style>
+						
+							<c:forEach var="n" items="${list}" varStatus="s">
+							<c:if test="${s.index%2!=0}">
 								<tr>
+							</c:if>
+							<c:if test="${s.index%2==0}">
+								<tr class="even">
+ 							</c:if>
 									<td class="num">${n.id}</td>
-									<td class="title"><a href="detail?id=${n.id}">${n.title}</a><span>${n.commentCount}</span></td>
+									<td>
+										<a href="detail?id=${n.id}">${n.title}</a>
+										<span>${n.commentCount}</span>
+										<span><a href="list?eid=${n.id}">수정</a><a href="">삭제</a></span>
+									</td>
 									<td class="writer">${n.writherId}</td>
 									<td class="date">${n.date}</td>
 									<td class="hit">${n.hit}</td>
 								</tr>
+								
 							</c:forEach>
-						
+							<tr>
+								<td colspan="5">-----------------------------------------------------------</td>
+							</tr>
+							<!-- <c:forEach var="n" items="${list}" begin="4" end="7" varStatus="s">
+								<tr>
+									<td class="num">${n.id}</td>
+									<td class="title">
+										<a href="detail?id=${n.id}">${s.index}/${s.current.id} : ${n.title}</a>
+										<span>${n.commentCount}</span>
+										<span><a href="list?eid=${n.id}">수정</a><a href="">삭제</a></span>
+									</td>
+									<td class="writer">${n.writherId}</td>
+									<td class="date">${n.date}</td>
+									<td class="hit">${n.hit}</td>
+								</tr>
+								
+							</c:forEach> -->
 						</tbody>
 					</table>
+					</form>
 					<div>
-					<!-- get방식의 형태-
+					<!-- get방식의 형태- -->
 						<a href="reg">글쓰기</a>
 					</div>
 				</section>
@@ -108,26 +142,44 @@
 						<span class="color-highlight font-bold">1</span>/ 1 pages
 					</div>
 				</section>
+				<!-- 1,6,11,16,21,....-> page + total 레코드 수 -> 마지막 번호 
+               
+               page : 1     start ==> 1
+               page : 13     start ==> 11
+               page : 44     start ==> 41
+               page : 39     start ==> 36 
+               
+               page : 1~5    :=> 1
+               page : 6~10    :=> 6
+               
+               start =page - (page%5-1)
+               ${page - ((page%5 == 0)? page%5+4:page%5-1)}
+              
+               
+               -->
+				<c:set var="page" value="${(empty param.p) ? 1 : param.p}"/>
+				<c:set var="start" value="${page - (page-1)%5}"/>
+				
 				<section id="pager">
 					<h1 class="d-none">페이지</h1>
 					<div>
-						<div class="icon-prev-pager">이전</div>
+					<div><a href="list1?p=${(page<6)?page:page-5}">이전</a></div>
+						<div ><a href ="list?p=${(start==1)?1:start-1}">이전</a></div>
 						<ul>
-							<li class="current">1</li>
-							<li>2</li>
-							<li>3</li>
-							<li>4</li>
-							<li>5</li>
+						<c:forEach var="n" begin="${start}" end="${start+4}" varStatus="s">
+							<li><a href="list?p=${n}">${n}</a></li>
+						</c:forEach>
+							
 						</ul>
-						<div class="icon-next-pager">다음</div>
+						<div ><a href ="list?p=${start+5}">다음</a></div>
 					</div>
 				</section>
 			</section>
-			</main>-->
+			</main>
 		</div>
 	</div>
 	<!-- footer block------------------------------------------------------------------------------------------- -->
-<jsp:include page="../inc/footer.jsp"/>  
+<jsp:include page="../../inc/footer.jsp"/>  
 </body>
 
 </html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<ul>
+	<script>
+		/* 
+		alert("hello javascript");
+		
+		// js는 오토박싱형태이다. 모든 타입이 다 참조변수 형태이다.
+				
+
+				
+		// expand object 바로 없으면 변수를 만들어준다.
+				var exam = new Object();
+
+		// map형식이 된다. key 값을 갖는다.
+				// exam["kor"]=30;
+				var colname = "kor";
+				exam.kor=100;
+				alert(exam["kor"]);
+				exam["reg date"]= 30;
+				alert(exam["reg date"]);
+				alert(exam[colname]);
+				alert(exam.kor);
+
+		// 자바스크립트는 모든 변수 타입은 참조변수가 된다.
+
+		//배열은 list의 형태를 갖고있는다.
+				var nums = new Array(1,2,3,4);
+				// 삽입, 삭제, 변경 을 할수있다.
+				nums.splice(1,0,10);
+		// 참조 타입이기때문에 아무형식이나 다 들어갈수있다.
+				var nums = new Array(1,"1",new Array(1,2,3.2));		
+				
+				var exam = [
+					{"kor":10,"eng":20,"math":25},
+					{"kor":1,"eng":2,"math":5}
+				];
+				alert(exam[0].eng);
+				
+				var kor=1;
+				var eng=2, math=3;
+				//eval 문자열의 데이터 값을 코드로 변환시켜서 계산해준다.
+				var sum =eval("kor+eng+math");
+				
+				alert(sum);
+				var exam = "{\"kor\":10,\"eng\":20,\"math\":25}";
+				//			eval('({"kor":10,"eng":20,"math":25})');
+				//			eval("({\"kor\":10,\"eng\":20,\"math\":25})");
+				
+				// JSON이라는 것이 문자열의 데이터 값을 알려주는데 
+				// 따로 eval처럼 () 써주지않아도 하나의 데이터로 속성으로 가질수있다.	
+				var jav = JSON.parse(exam);
+				
+				alert(jav.kor);
+				
+				var el = "kor=1; eng=2;";
+				sum = eval("kor+eng");
+				alert(sum);
+				
+				//  json 의 데이터 형식을 때로는 보내줘야 할때가 있다  문장열로써 만들어서
+				//  그때 사용하는 함수가 string
+				
+				var exa = {kor:1,eng:3,math:4};
+				var json = JSON.stringify(exa);
+				alert(json);
+				
+				var name = "newlec";
+				if(name === "newlec")
+				alert("같습니다");
+				
+				
+				var al = ["철수","영희","맹구","동천"];
+				
+				for(i in al)
+				//	alert(al[i]);
+				console.log(al[i]);
+				
+				var ar ={"kor":10,"eng":20,"math":25};
+				
+				for(var i in ar)
+				console.log(i);
+				
+				var add = new Function("x,y","return x+y");
+				console.log(add(3,5));
+				
+				add = function(x,y){
+					return x+y;
+				}
+				console.log(add(3,5));
+				
+				function add(x,y){
+					return x+y;
+				}
+				console.log(add(3,5));
+				
+				add = function(){
+					return arguments[0]+arguments[1]
+				}
+				
+				console.log(add(1,2));
+				
+				var sum = function(){
+					var x =0;
+					for(var i=0; i<arguments.length; i++)
+					x += arguments[i];
+					
+					return x;
+				}
+				//객체 자체를 넘겨줄수 있다.
+				var cal = function(x,y,aa){
+					return aa(x,y);
+				}
+				console.log(cal(1,2,sum));
+				
+				console.log(sum(1,23,4));
+				console.log(typeof sum);
+				//변수 선언은 지역변수가 될수있다. 코드자체 선언은 의미가없다 다 전역으로 된다.
+				
+				var a = 1;
+				alert(window.a);
+				
+				var r3 = function(){
+					a =1;
+					var a;
+					a++;
+					alert(a);
+					alert(window.a);
+					return a;
+				}
+				console.log(r3());
+
+				{var a = 1;}
+				console.log(a);	
+				
+				function f1(){
+					 a=1;
+				}
+				function f2(){
+					a++;
+				}
+				f1();
+				f2();
+				console.log(a);
+
+				function f3(){
+					var x = 2;
+					function f4(){
+						var x = 4;
+						console.log();
+					}
+					f4();
+				}
+				f3();
+
+				// 클로저 - outer function 을 닫아주는 역할을 한다.
+				//inner function 을 쓰면 사라지지않는다 
+				//자원을 물고있기에 자원낭비 메모리 낭비 가비지 컬랙터에서 사라지지않는다.
+				function f1(){
+					var a =2;
+					return function f2(){
+						return a;
+					}
+				}
+
+				var a = f1();
+				var b = a();
+				//이경우 임
+				alert(b);
+				*/
+	</script>
+	<script>
+		/*
+		//플랫폼의 기능
+		var x,y;
+		//parseint 는 뒤에있는 문자를 삭제 되어진다. 시작이 문자라면 에러가된다.
+		x=parseInt(prompt("x값을 입력하세요",0));
+		y=parseInt(prompt("y값을 입력하세요",0));
+		var sum = x+y;
+		if(isNaN(sum)){
+			alert("잘못된입력값1")
+		}
+		alert(x+y);
+		*/
+	</script>
+	<!-- 문서를 동적으로 만들어서 사용할수 있게 한다. -->
+	<h1 id ="hi" onclick="alert('hello');">안녕하하읻용</h1>
+	<script>
+		//var html = "<h1>안녕하세요</h1>";
+		//document.write(html);
+		//기존의 것을 바꿀수 있다. 문서 열리자 마자 바뀐다. 
+		var html = "안녕하세ㅇㄹ요";
+		hi.innerText = html;
+	</script>
+
+	<script>
+		// function printResult(){
+		// 	var x = prompt('x값을 입력하세요',0);
+		// 	var y = prompt('y값을 입력하세요',0);
+
+		// 	x= parseInt(x);
+		// 	y=parseInt(y);
+
+		// 	if(isNaN(x+y)){
+		// 		alert("잘못된입력값1");
+		// 	}
+		// 	else
+		// 		alert(x+y);
+		// }
+
+	</script>
+		<!-- <input type = "button" value="출력" onclick="printResult()"/> -->
+
+		<!-- dom 아이디값으로써 스크립트의 함수 이용이 가능하다 -->
+				<!-- 
+					
+					<script>
+						function printResult(){
+							var x = prompt('x값을 입력하세요',0);
+							var y = prompt('y값을 입력하세요',0);
+							
+							x= parseInt(x);
+							y=parseInt(y);
+							
+							if(isNaN(x+y)){
+								alert("잘못된입력값1");
+							}
+							else
+							return x+y;
+							// btnPrint.value=x+y;
+						}
+						alert(printResult(3));
+					</script>
+					<input type = "button" value="출력" onclick="printResult()" id="btnPrint"/>
+					
+				-->
+
+				<!-- 문서를 먼저 읽고나서 스크립트를 실행 하게 해야한다. -->
+				<!-- 
+
+					<script>
+						function printResult(){
+							var x = prompt('x값을 입력하세요',0);
+							var y = prompt('y값을 입력하세요',0);
+							
+							x= parseInt(x);
+							y=parseInt(y);
+							
+							if(isNaN(x+y))
+							alert("잘못된입력값1");
+							
+							else					
+							btnPrint.value=x+y;
+						}
+						
+						var init = function(){
+							btnPrint.onclick = printResult;
+						}
+						//변수와 함수를 유연하게 사용할수 있기때문에 때로는 변수 때로는 함수로써 적절히 사용 가능하다
+						//window.onload = init();
+						window.onload = init;
+						
+					</script>
+					<input type = "button" value="출력"  id="btnPrint"/>
+				-->
+				아웃터 펑션을 만들어서 프라이빗하게 만든다.
+				<!-- html 에서 의 명명 방법  -->
+				<!-- 
+					<script>
+						function printResult(){
+							var btnPrint = document.getElementById("btn-print");
+							var x = prompt('x값을 입력하세요',0);
+							var y = prompt('y값을 입력하세요',0);
+							
+							x= parseInt(x);
+							y=parseInt(y);
+							
+							if(isNaN(x+y))
+							alert("잘못된입력값1");
+							
+							else					
+							btnPrint.value=x+y;
+						}
+						var init = function(){
+							var btnPrint = document.getElementById("btn-print");
+							btnPrint.onclick = printResult;
+						}
+						window.onload = init;
+					</script>
+					<input type = "button" value="출력"  id="btn-print"/>
+				-->
+				
+				전역화의 지역화 를 만들어서 사용할수있다 js은닉화의 방법 
+				<!-- 
+					
+					<script>
+						var init = function(){
+					
+							var btnPrint = document.getElementById("btn-print");
+							btnPrint.onclick = printResult;
+							
+							function printResult(){
+								var x = prompt('x값을 입력하세요',0);
+								var y = prompt('y값을 입력하세요',0);
+								
+								x= parseInt(x);
+								y=parseInt(y);
+								
+								if(isNaN(x+y))
+								alert("잘못된입력값1");
+								
+								else					
+								btnPrint.value=x+y;
+							}
+						}
+						window.onload = init;
+					</script>
+					<input type = "button" value="출력"  id="btn-print"/>
+				--> 
+					<h1>js의 초기화를 설정할수있다 최초의 로드시 할수있는 방법</h1>
+	<!-- 
+
+		<script>
+			window.onload = function(){
+				var btnPrint = document.getElementById("btn-print");
+				btnPrint.onclick = printResult;
+				
+				function printResult(){
+					var x = prompt('x값을 입력하세요',0);
+					var y = prompt('y값을 입력하세요',0);
+					
+					x= parseInt(x);
+					y=parseInt(y);
+					
+					if(isNaN(x+y))
+					alert("잘못된입력값1");
+					
+					else					
+					btnPrint.value=x+y;
+				}
+			}
+		</script>
+		<input type = "button" value="출력"  id="btn-print"/>
+	-->
+
+	id의 객체를 가져오는것으로 데이터 값을 가져와야 사용가능할수있다. 
+	<!-- 
+		<script>
+			window.onload = function(){
+				var btnResult = document.getElementById("btn-result");
+				var xInput = document.getElementById("x-input");
+				var yInput = document.getElementById("y-input");
+				
+				btnResult.onclick  = function(){
+					
+					xInput = parseInt(xInput.value);
+					yInput = parseInt(yInput.value);
+					
+					alert(xInput+yInput);
+				};
+			};
+		</script>
+		<input type="text" id="x-input">+<input type="text" id="y-input">
+		<input type ="button" value="계산하기" id="btn-result">
+	-->
+	
+	<li><h1>연습용</h1></li>
+	<script>
+		window.onload = function(){
+			var btnSample = document.getElementById("btn-sample");
+			btnSample.onclick = function(){
+				btnSample.value = "알겠어";
+				alert(btnSample.name);
+			}
+		}
+	</script>
+		<div  >
+			<input id="btn-sample" type ="button" name="오성미">
+		</div>
+
+	<h1>재사용의 방법 별도파일 만들기</h1>
+</ul>
+	</body>
+</html>

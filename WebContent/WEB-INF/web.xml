@@ -30,4 +30,7 @@
 	</filter-mapping>
 	web.xml에서 필터를 만드는 방법. /* 모든경로에서 필터 적용
  -->
+     <session-config>
+        <session-timeout>3</session-timeout>
+    </session-config>
 </web-app>

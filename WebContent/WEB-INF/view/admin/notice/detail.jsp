@@ -8,14 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link href="../css/style.css" type="text/css" rel="stylesheet">
+<link href="/root/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <%
 	request.getAttribute("list");
 %>
 <body>
 	<!-- header block------------------------------------------------------------------------------------------- -->
-	<jsp:include page="../inc/header.jsp"/>
+<jsp:include page="../../inc/header.jsp"/>
 	<!-- visual block------------------------------------------------------------------------------------------- -->
 	<div id="visual">
 		<div class="content-box" style="position: relative">
@@ -35,8 +35,7 @@
 	<!-- body block------------------------------------------------------------------------------------------- -->
 	<div id="body">
 		<div class="content-box">
-			<jsp:include page="../inc/aside.jsp"/>
-
+		<jsp:include page="../../inc/aside.jsp"/>
 
 			<main id="main">
 			<section>
@@ -53,34 +52,48 @@
 
 			<section>
 				<h1>공지사항 내용</h1>
-				<form action="edit" method="post" >
 				<table>
 					<tbody>
 						<tr>
 							<th>제목</th>
-							<td><input name="title" value="${notice.title}"></td>
+							<td>${notice.title}</td>
 						</tr>
 						<tr>
 							<th>작성일</th>
 							<td>${notice.date}</td>
 						</tr>
 						<tr>
+							<th>첨부파일</th>
+							<c:forEach var="file" items="${noticeFiles}">
+							<td>
+								<a href="/upload/${file.name}" download>${file.name}</a>
+							</td>
+							</c:forEach>
+						</tr>
+						<tr>
 							<th>내용</th>
-							<td><textarea name="content">${notice.content}</textarea></td>
+							<td>${notice.content}</td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="hidden" name="id" value="${notice.id}">
-				<input type="submit" value="저장">
-				<a href="detail?id=${notice.id}">취소</a>
-			</form>
+				<div>
+					<a href="edit?id=${notice.id}">수정 (수정폼으로가기)</a> 
+					<a href="del?id=${notice.id}">삭제 (삭제 폼으로 가기)</a>
+				</div>
 			</section>
-
+			
+			<section>
+				<h1></h1>
+				<ul>
+					<li><span>이전글</span><a href="detail?id=${prev.id}">${prev.id}</a></li>
+					<li><span>다음글</span><a href="detail?id=${next.id}">${next.id}</a></li>
+				</ul>
+			</section>
 			</main>
 		</div>
 	</div>
 	<!-- footer block------------------------------------------------------------------------------------------- -->
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="../../inc/footer.jsp"/>
 </body>
 
 </html>

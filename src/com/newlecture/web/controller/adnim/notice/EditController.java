@@ -1,4 +1,4 @@
-package com.newlecture.web.controller.notice.edit;
+package com.newlecture.web.controller.adnim.notice;
 
 import java.io.IOException;
 import java.sql.SQLException;

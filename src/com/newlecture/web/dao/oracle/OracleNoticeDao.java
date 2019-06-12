@@ -23,7 +23,7 @@ public class OracleNoticeDao implements NoticeDao  {
 	@Override
 	public List<NoticeView> getList(int page) throws ClassNotFoundException, SQLException{
 		// TODO Auto-generated method stub
-		return getList(1, "title", "");
+		return getList(page, "title", "");
 	}
 
 	@Override
@@ -200,5 +200,58 @@ public class OracleNoticeDao implements NoticeDao  {
 		connection.close();
 
 		return result;
+	}
+
+	@Override
+	public int getLastId() throws ClassNotFoundException, SQLException {
+		int result = -1;
+		String sql = "select id from (select * from notice order by regdate desc) where rownum = 1";
+		
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection connection = DriverManager.getConnection(url, "\"newlec\"", "l4class");
+		Statement statement = connection.createStatement();
+		ResultSet rs = statement.executeQuery(sql);
+
+		if (rs.next()) {
+			result =rs.getInt("id");
+		}
+
+		rs.close();
+		statement.close();
+		connection.close();
+
+		return result;
+	}
+
+	@Override
+	public int getCount() throws ClassNotFoundException, SQLException {
+		
+		return 0;
+	}
+
+	@Override
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException {
+		int count=0;
+		String sql = "select count(id) count from notice where "+field+"like ?";
+		
+		String url = "jdbc:oracle:thin:@192.168.0.15:1521/xepdb1";
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection connection = DriverManager.getConnection(url, "\"newlec\"", "l4class");
+	//	Statement statement = connection.createStatement();
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, "%"+query+"%");
+		//Statement는 sql을 넣어줘야 한다.
+		//result=statement.executeUpdate(sql);
+		ResultSet rs = statement.executeQuery();
+		while(rs.next())
+			count = rs.getInt("count");
+
+ 		rs.close();	
+		statement.close();
+		connection.close();
+
+		return count;
+
 	}
 }
