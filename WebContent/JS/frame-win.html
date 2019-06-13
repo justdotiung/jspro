@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.addEventListener("load",function(){
+            var btn = document.getElementById("btn-ex3-1");
+
+            btn.onclick = function(){
+                parent.document.getElementById("btn-ex3").value = "안녕하세요";
+            };
+
+        });    
+    </script>
+    <input id="btn-ex3-1" type="submit" value="click">
+</body>
+</html>
