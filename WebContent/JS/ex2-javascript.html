@@ -15,7 +15,7 @@
 		<input type="text" id="x-input">+<input type="text" id="y-input">
 		<input type ="button" value="계산하기" id="btn-result">
 	</section>
-	
+	<li>타이머 조정 (꼭 타이머가 아니여도 순차적으로 줄이는것은 다 가능)</li>
 	<section id="ex2">
 		<div>
 			남은시간 <span id="count-span" >10</span>초
@@ -48,10 +48,89 @@
 	</section>
 
 	<section id="ex5">
-		<input type="button" value="적용">
+		<style>
+			#ex5 img{
+				width: 300px;
+			}
+		</style>
+		<input  class="btn1" type="button" value="적용">
+		<input class="btn2" type="button" value="스타일 적용">
+		<br>
 		<img src="">
-
 	</section>
-</ul>
+	<section id="ex5-1">
+			<style>
+				#ex5 img{
+					width: 300px;
+				}
+			</style>
+			<select class = "img-select">
+				<option value="data:image/jpeg;base64,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">이미지1</option>
+				<option value="data:image/jpeg;base64,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">이미지2</option>
+			</select>
+			<input  class="btn12" type="button" value="적용">
+			<input  class="btn1" type="text">
+			<br>
+			<img class="i" src="">
+		</section>
+		<li>노드 조작 하기</li>
+		<section id="ex6">
+			<style>
+				#ex6 .box{
+					width: 100px;
+					height: 100px;
+					border: 1px solid red;
+				}
+			</style>
+			<div>
+				<input class="btn-add-text"type="button" value="텍스트추가">
+				<input class="btn-add-elment"type="button" value="엘리먼트추가">
+			</div>
+			<div class="container">
+
+			</div>
+		</section>
+		<li>공지사항 조작하기</li>
+		<section id="ex7">
+			<style>
+				#ex7{
+
+				}
+			</style>
+			<ul>
+				<li>
+					<section>
+						<h1>자바 프로그래밍이란?</h1>
+						<div></div>
+						<div></div>
+					</section>
+				</li>
+				<li>
+					<section></section>
+				</li>
+			</ul>
+			<div>
+				<section></section>
+			</div>
+			<div>
+				<input class="btn-load" type="button" value="로드">
+			</div>
+			<table class="notice" border="1">
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>제목</td>
+						<td>작성자</td>
+						<td>작성일</td>
+						<td>조회수</td>
+					</tr>
+				</thead>
+				<tbody>
+				
+				</tbody>
+			</table>
+		</section>
+	</ul>
+	
 </body>
 </html>

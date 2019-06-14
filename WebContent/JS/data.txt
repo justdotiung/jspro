@@ -1,0 +1,19 @@
+
+				id:"6",
+				title:"뉴렉쌤",
+				writerId:"newlec",
+				regDate:"2019-06-11",
+				hit:30,
+		
+				id:"7",
+				title:"뉴렉쌤1",
+				writerId:"newlec1",
+				regDate:"2019-06-11",
+				hit:301,
+		
+				id:"8",
+				title:"뉴렉쌤2",
+				writerId:"newlec2",
+				regDate:"2019-06-11",
+				hit:302
+		
