@@ -129,6 +129,8 @@
 						<span class="color-highlight font-bold">1</span>/ 1 pages
 					</div>
 				</section>
+				
+			
 				<section id="pager">
 					<h1 class="d-none">페이지</h1>
 					<div>

@@ -254,4 +254,5 @@ public class OracleNoticeDao implements NoticeDao  {
 		return count;
 
 	}
+	
 }

@@ -18,7 +18,8 @@
 	width:100%;
 	}
 </style> 
-
+<!-- /member/notice/list -->
+<script src="../../JS/notice/list.js"></script>
 </head>
 <% List<NoticeView> lista = (List<NoticeView>)request.getAttribute("list");
 	lista.get(0).getHit();
@@ -85,12 +86,12 @@
 								<td class="hit">조회수</td>
 							</tr>
 						</thead>
-						<tbody>
 						<style>
 							.even{
 								background: beige;
 							}
 						</style>
+						<tbody>
 						
 							<c:forEach var="n" items="${list}" varStatus="s">
 							<c:if test="${s.index%2!=0}">
@@ -100,7 +101,7 @@
 								<tr class="even">
  							</c:if>
 									<td class="num">${n.id}</td>
-									<td>
+									<td class="title">
 										<a href="detail?id=${n.id}">${n.title}</a>
 										<span>${n.commentCount}</span>
 										<span><a href="list?eid=${n.id}">수정</a><a href="">삭제</a></span>
@@ -109,7 +110,7 @@
 									<td class="date">${n.date}</td>
 									<td class="hit">${n.hit}</td>
 								</tr>
-								
+								<!-- 마지막결과물 서버코드가 사라진 상태로 동작하게 만들어야 한다  -->
 							</c:forEach>
 							<tr>
 								<td colspan="5">-----------------------------------------------------------</td>
@@ -142,6 +143,11 @@
 						<span class="color-highlight font-bold">1</span>/ 1 pages
 					</div>
 				</section>
+				
+				<div id="test-pager">
+					<input type="text" value="1">
+					<input type="button" value="요청">
+				</div>
 				<!-- 1,6,11,16,21,....-> page + total 레코드 수 -> 마지막 번호 
                
                page : 1     start ==> 1

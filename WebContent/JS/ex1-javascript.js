@@ -528,22 +528,27 @@ window.addEventListener("load",function(){
 		];
 		
 		loadButton.onclick = function(){
+			//포멧문자열을 보내준 것이 필요하다
 
 			var request = new XMLHttpRequest();
-			request.open("get","data.txt",false);
+			request.open("GET","/notice/list-ajax?p=1",false);
 			request.send();
 
-		//	alert(request.responseText);
-			var a;
-			a=request.responseText.split(",");
-console.log(a);
+			alert(request.responseText);
+			var json = JSON.parse(request.responseText);
+			console.log(json[0].title)
+		//대체하기
+		//notices = json
+		//누적하기 기존의것을 두고 쌓인다.
+			notices= notices.concat(json);
+
 			var keys = Object.keys(notices[0]);
 			var html =[];
 			for(var j = 0; j <notices.length; j++){
 				html.push("<tr>");
 				for(var i = 0; i<5; i++){
 					var key=keys[i];
-					html.push("<td>"+a[i]+"</td>");
+					html.push("<td>"+notices[j][key]+"</td>");
 				}
 				html.push("</tr>");
 			}

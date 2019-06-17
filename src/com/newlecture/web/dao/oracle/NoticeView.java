@@ -25,5 +25,12 @@ public class NoticeView extends Notice {
 		super(id, title, content, writherId, date, hit);
 		// TODO Auto-generated constructor stub
 	}
-	
+//	이따 다시구현 캡슐써보장
+//	public String toJson() {
+//		return "{\"id:" + id + 
+//				", title:\"" + title + 
+//				"\", content:\"" + content + 
+//				"\", writherId:\"" + writherId + 
+//				"\", hit:" + hit ;
+//	}
 }
