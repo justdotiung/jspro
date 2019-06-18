@@ -91,6 +91,24 @@
 								background: beige;
 							}
 						</style>
+	<!--
+	 복제방법2 (로우를 만들기위한 하나의 틀 생성) 레코드가 없는경우도 있기때문에 템플릿을 만든다.
+		스크립트에서 필요한 템플릿을 만든다 tr을 직접 복제하는방법
+		ex1은 뉴렉사이트와 맞지않기에 이방법을 사용한다 tr이 없을수도 있고 첫번째 자식이 tr아닐수도 있기때문이다
+		-->
+						<template class="notice-template">
+							<tr>
+								<td class="num"></td>
+								<td class="title">
+									<a href="detail?id="></a>
+									<span></span>
+									<span><a href="list?eid=">수정</a><a href="">삭제</a></span>
+								</td>
+								<td class="writer"></td>
+								<td class="date"></td>
+								<td class="hit"></td>
+							</tr>
+						</template>
 						<tbody>
 						
 							<c:forEach var="n" items="${list}" varStatus="s">
@@ -148,6 +166,11 @@
 					<input type="text" value="1">
 					<input type="button" value="요청">
 				</div>
+				<div id="test-remove">
+					<label>삭제할 게시글 id</label><input type="text" value="1">
+					<input type="button" value="삭제">
+				</div>
+				
 				<!-- 1,6,11,16,21,....-> page + total 레코드 수 -> 마지막 번호 
                
                page : 1     start ==> 1

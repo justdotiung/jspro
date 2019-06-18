@@ -68,7 +68,7 @@ public class ListAjaxController extends HttpServlet{
 		//가상의 주소에서 상대경로
 		
 		
-		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=UTF-8");//컨텐츠 타입 필요 마인이 필요하신봐야함
 		PrintWriter out = resp.getWriter();
 		

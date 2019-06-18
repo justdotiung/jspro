@@ -1,7 +1,6 @@
 package com.newlecture.web.controller.adnim.notice;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -13,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.dao.oracle.OracleNoticeDao;
 
-@WebServlet("/notice/del-ajax")
-public class DeleteController extends HttpServlet {
+@WebServlet("/root/notice/del")
+public class DeleteAjaxController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		
 		NoticeDao noticeDao = new OracleNoticeDao();
-		int result = 0;
+		
 		try {
-			result = noticeDao.delete(id);
+			noticeDao.delete(id);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,13 +29,7 @@ public class DeleteController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html; charset=UTF-8");
 		
-		PrintWriter out = resp.getWriter();
-		if (result != -1)
-		out.write("ok");
-		else
-			out.write("½ÇÆÐ");
+		resp.sendRedirect("list");
 	}
 }
