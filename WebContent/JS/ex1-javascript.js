@@ -498,7 +498,7 @@ window.addEventListener("load",function(){
 
 // ex7-1 ------노드조작 뎀플릿 을 이용 DOM 조작 2 을 이용한 데이터 요청하기 --------------------
 window.addEventListener("load",function(){
-	
+	/*
 		var section = this.document.querySelector("#ex7");
 		var noticeTBody = section.querySelector(".notice tbody");
 		var loadButton = section.querySelector(".btn-load");
@@ -557,6 +557,98 @@ window.addEventListener("load",function(){
 			noticeTBody.innerHTML=html.join("");
 				
 		};
+		*/
+	});
+
+	// ex8-trigger -----------------------------------------------
+
+	window.addEventListener("load",function(){
+		var section = this.document.querySelector("#ex8");
+		var fileButton = section.querySelector("input[type=file]");
+		var trigButton = section.querySelector("input[type=button]");
+		trigButton.onclick = function(e){
+		//윈도우 브라우져 조건을 걸어보자 윈도우 객체로 사용할수있따.
 		
+			console.log("aa");
+			//하위버전의 브라우져에서는 통하지않는다 최신버전
+			var event = new MouseEvent(
+				"click",
+				{
+					view:window,
+					bubbles:true,
+					cancelable:true
+				}
+			);
+			//옛날브라주져에서 통하는것 (쓸모없는것.) 사라질것이다.
+			var file =document.createEvent("MouseEvent");
+			event.initEvent("click",true,true);//evet type , bubbles, cancelable
+
+			fileButton.dispatchEvent(event);
+		}
+
 	});
 	
+	// ex9--애니메이션 ---------------------------------------------
+window.addEventListener("load",function(){
+/*
+	var section = document.querySelector("#ex9")
+	var startBtn = section.querySelector(".start");
+	var pauseBtn = section.querySelector(".pasue");
+
+	var ball = section.querySelector(".ball");
+	startBtn.onclick=function(){
+		
+		
+		
+		// css에서의 값을 가져오지 못하기 때문에 css에서도 정의를 하고 js에서도 정의를 하는 
+		//개떡같은 코드가 발생한다. 그것을 막기위해서 css값을 가져오는 윈도우 객체를 사용
+		//getComputedStyle()를 사용 한다.
+		var ballStyle = window.getComputedStyle(ball);
+		ball.style.left = ballStyle.getPropertyValue("left");
+		ball.style.top = ballStyle.getPropertyValue("top");
+	
+		var tid = setInterval(function(){
+			console.log(ball.style.width);
+			var left = parseInt(ball.style.left);
+			var top = parseInt(ball.style.top);
+
+			left += 1;
+			top += 1;
+
+			ball.style.left = left+"px";
+			ball.style.top = top+"px";
+
+			if(left >= 300)
+				clearInterval(tid);
+		}, 17);
+	};
+	
+	pauseBtn.onclick=function(){
+
+	};
+*/
+
+});
+
+// ex9--애니메이션 -css 사용방법 ----------------------------------
+
+//css에서 할수있는것은 css에서하는것이 더 바람직하다.
+	window.addEventListener("load",function(){
+		var section = document.querySelector("#ex9")
+		var startBtn = section.querySelector(".start");
+		var pauseBtn = section.querySelector(".pasue");
+	
+		var ball = section.querySelector(".ball");
+		startBtn.onclick=function(){
+			ball.style.transform = "rotate(45deg)";
+			//ball.style.left = "300px";
+			//ball.style.top = "300px";
+			ball.style.width = "300px";
+		};
+		
+		pauseBtn.onclick=function(){
+	
+		};
+	
+	
+	});
