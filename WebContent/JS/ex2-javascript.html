@@ -8,6 +8,125 @@
 	<!-- <script src ="test.js"></script> -->
 </head>
 <body>
+	<li>탭페이지 구현</li>
+	<section id="ex13">
+		<style>
+			#ex13 ul,
+			#ex13 li{
+				padding: 0;
+				margin: 0;
+				/* font-size: 0px; */
+			}
+
+			#ex13 .d-none{
+				display: none;
+			}
+			#ex13 .d-none.current{
+				display: block;
+			}
+
+			#ex13 li{
+				list-style-type: none;
+			}
+			#ex13 .tab-menu-list{
+				display: flex;
+			}
+			#ex13 .tab-menu-list li{
+				border: 1px solid gray;
+				width: 100px;
+				height: 30px;
+			}
+		
+			#ex13 .content-list>div{
+				width: 100%;
+				min-height: 500px;
+				border: 1px solid red;
+			}
+
+			html{
+				scroll-behavior: smooth;
+			}
+		</style>
+		<!--
+			# 는 같은 페이지 url 뒤에붙어서 아이디값을 불러준다.
+			"" 는 같은 페이지 url 요청
+		-->
+		<h1 class="d-none"></h1>
+
+		<ul class="tab-menu-list">
+			<li><a href="#tab1">탭1</a></li>
+			<li><a href="#tab2">탭2</a></li>
+			<li><a href="#tab3">탭3</a></li>
+		</ul>
+		<div class="content-list">
+			<div id="tab1" class="d-none">
+				<h2>1번 콘텐츠</h2>
+			</div>
+			<div id="tab2" class="d-none">
+				<h2>2번 콘텐츠</h2>
+			</div>
+			<div id="tab3" class="d-none">
+				<h2>3번 콘텐츠</h2>
+			</div>
+		</div>
+	</section>
+
+	<li>케러셀 구현 해보기 !</li>
+	<section id="ex12">
+		<style>
+			#ex12 ul,
+			#ex12 li{
+				padding: 0;
+				margin: 0;
+				/* font-size: 0px; */
+			}
+			#ex12 li{
+				list-style-type: none;
+			}
+			#ex12 img{
+				/* 텍스트 라인 정렬  */
+				vertical-align: middle;
+			}
+			#ex12 .d-none{
+				display: none;
+			}
+			#ex12 .img-list{
+				display: flex;
+				width:446px;
+				height: 156px;
+				border: 1px solid red;
+				--overflow: hidden;
+				position: relative;
+			}
+			#ex12 .img-list li{
+				position: absolute;
+				top: 0px;
+				transition: 1s;
+			}
+			#ex12 .img-list li.left{
+				left: -100%;
+			}
+			#ex12 .img-list li.center{
+				left: 0%;
+			}
+			#ex12 .img-list li.right{
+				left: 100%;
+			}
+		</style>
+		<h1 class="d-none">케러셀</h1>
+		<ul class="img-list">
+			<li class="right"><img src="https://www.jhta.co.kr/data/banner/1559723179_98b19fef89e671b80884f77a2ff91653.jpg"></li>
+			<li class="center"><img src="https://www.jhta.co.kr/data/banner/1533781286_160060bf05d7ce9127afe4545d59b59e.jpg"></li>
+			<li class="left"><img src="https://www.jhta.co.kr/data/banner/1553233863_d40636f83553ba9b011b652294af52ae.jpg"></li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div class="prev-button">이전</div>
+		<div class="next-button">다음</div>
+	</section>
 <h2>재사용의 사용방법및 js 이벤트 추가시의 방법 </h2>
 <ul>
 <li>코드 분리 이벤트 시 주의 사항 </li>
@@ -126,7 +245,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				
+					
 				</tbody>
 			</table>
 		</section>
@@ -138,6 +257,48 @@
 		<li>애니메이션이란 무엇일까!</li>
 		<section id="ex9">
 			<style>
+
+				.dialog{
+					display: block;
+					width: 100%;
+					height: 0%;
+					top: 0px;
+					left: 0px;
+					position: fixed;
+					z-index: 999;
+					overflow: hidden;
+					
+				}
+				.dialog .screen{
+					height: inherit;
+					width: inherit;
+					background: black;
+					opacity: 0;
+					transition: 1s opacity;
+				}
+				.dialog .content{
+					background: #fff;
+					border: 1px solid #000;
+					border-radius: 10px;
+					position:fixed;
+					top: 30%;
+					left: 20%;
+					background: white;
+					display: none;
+					
+					
+				}
+	
+				.dialog.show{
+					--display: block;
+					height: 100%;
+				}
+				.dialog.show .screen{
+					opacity: 0.7;
+				}
+				.dialog.show .content{
+					--display: block;
+				}
 				.stage{
 					width: 700px;
 					height: 500px;
@@ -180,7 +341,7 @@
 					transition: 500ms ;
 					transition-timing-function: cubic-bezier(0.46, 0, 0.29, 1.6);
 				}
-				/* 의사결정 hoverfmf 마우스가져가면 움직인다 */
+				/* 의사결정 hover는 마우스가져가면 움직인다 */
 				.note:hover .cover{
 					transform:translateY(-150px) ;
 				}
@@ -192,18 +353,118 @@
 			<div class="stage">
 				<div class = "ball"></div>
 			</div>
-			<div class="note-list">
-				<div class="note">
+			<div>
+					<input class="cl" type="button" value="내용보기">
+				</div>
+				<div class="dialog">
+					<div class="screen"></div>
 					<div class="content">
-						노트
-					</div>
-					<div class="cover">
-						커버
+						여기는 여길인데 여기가 여기일까?
 					</div>
 				</div>
+				<div class="note-list">
+					<div class="note">
+						<div class="content">
+							노트
+						</div>
+						<div class="cover">
+							커버
+						</div>
+					</div>
+				</div>
+		</section>
+		<!-- 애니메이션 심화 재사용틀  -->
+
+		<li>애니메이션은 몸부림의 정도만을 사용 한다 제자리로 돌아가려는 성질이있다</li>
+		<section id="ex10">
+			<style>
+			
+				@keyframes slide-open{
+						/* 현재위치 */
+						from{
+							transform: scale(1,1);
+						}
+						50%{
+							transform: rotate(30deg);
+						}
+						70%{
+							background: green;
+						}
+						90%{
+							transform: scale(5,5);
+						}
+						/* 나중위치 */
+						to{
+							transform: scale(2,2);
+						}
+					}
+					.container{
+						width: 500px;
+						height: 300px;
+						border: 1px solid gray;
+						position: relative;
+					}
+					.box{
+						width: 100px;
+						height: 100px;
+						background: blue;
+						position: absolute;
+						top: 0px;
+						left: 0px;
+						transform: scale();
+						transform-origin: left top;
+						--animation: slide-open 1s;
+					}
+					/* .container:hover .box{
+						animation: slide-open 1s;
+
+					} */
+					.ani-slide-open{
+						animation: slide-open 1s;
+					}
+
+			</style>
+			<div>
+				<input class ="del-button" type="button" value="삭제">
+			</div>
+			<div class="container">
+				<div class="box"></div>
 			</div>
 		</section>
+		<section id="ex11">
+				<style>
+				#ex11 .container1{
+				   width:700px;
+				   height: 500px;
+				   background: yellow;
+				   border:1px solid gray;         
+				   position: relative;
+				}
+		  
+				#ex11 .container1>div{
+				   width:100px;
+				   height: 100px;
+				   border:1px solid black;
+				   background: #fff;
+				   position: absolute;
+		  
+				   left:0px;
+				   top:0px;
+
+				   transition: 500ms;
+				}
+				</style>
+				<div>
+				   <input class="go-button" type="button" value="go" >
+				</div>
+				<div class="container1">         
+				   <div>1</div>
+				   <div>2</div>
+				   <div>3</div>
+				   <div>4</div>
+				   <div>5</div>
+				</div>
+			 </section>
 	</ul>
-	
 </body>
 </html>

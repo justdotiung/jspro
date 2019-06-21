@@ -15,7 +15,6 @@
 %>
 <body>
 	<!-- header block------------------------------------------------------------------------------------------- -->
-	<jsp:include page="../../inc/header.jsp"/>
 	<!-- visual block------------------------------------------------------------------------------------------- -->
 	<div id="visual">
 		<div class="content-box" style="position: relative">
@@ -35,7 +34,6 @@
 	<!-- body block------------------------------------------------------------------------------------------- -->
 	<div id="body">
 		<div class="content-box">
-		<jsp:include page="../../inc/aside.jsp"/>
 
 			<main id="main">
 			<section>
@@ -52,7 +50,7 @@
 
 			<section>
 				<h1>공지사항 내용</h1>
-				<form action="reg" method="post" enctype="multipart/form-data" >
+				<form action="reg" method="post">
 					<table>
 						<tbody>
 							<tr>
@@ -66,18 +64,23 @@
 								</td>
 							</tr>
 							<!-- key값의 중복 방법 (name) -->
+							<!-- 
+								백단엣는  배열로 받아서 사용 한다 parametervalues() 사용 
+								file part[] 파일또한 배열로 받아서
+								
+								js에서도 ajax는 배열로 받아야 한다.
+								 -->
 							<tr>
 								<th>제목</th>
 								<td><input name="title"></td>
 							</tr>
 							<tr>
-								<th>첨부파일</th>
-								<td><input type="file" name="file"></td>
+								<th>제목</th>
+								<td><input name="title"></td>
 							</tr>
-							
 							<tr>
-								<th>내용</th>
-								<td><textarea name="content"></textarea></td>
+								<th>제목</th>
+								<td><input name="title"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -90,7 +93,6 @@
 		</div>
 	</div>
 	<!-- footer block------------------------------------------------------------------------------------------- -->
-<jsp:include page="../../inc/footer.jsp"/>
 </body>
 
 </html>

@@ -637,18 +637,154 @@ window.addEventListener("load",function(){
 		var section = document.querySelector("#ex9")
 		var startBtn = section.querySelector(".start");
 		var pauseBtn = section.querySelector(".pasue");
-	
+		var bacbutton = section.querySelector(".cl")
 		var ball = section.querySelector(".ball");
+		var divc = section.querySelector(".dialog");
+		var screen = section.querySelector(".screen");
+		var content = section.querySelector(".content");
 		startBtn.onclick=function(){
 			ball.style.transform = "rotate(45deg)";
-			//ball.style.left = "300px";
+			ball.style.left = "300px";
 			//ball.style.top = "300px";
 			ball.style.width = "300px";
 		};
 		
 		pauseBtn.onclick=function(){
-	
+			
 		};
-	
+		bacbutton.onclick=function(){
+			
+			divc.classList.add("show");
+			//divc.innerText="dialog show";
+			//여닫이 태그 사이에 들어가는 것 innerText
+			// console.log(divc.innerText);
+			// divc.className="dialog show";
+			//divc.style.display = "block";
+			//screen.style.opacity =0.7;
+		
+		}
+// 트렌지션이 끝나고 다음 애니메이션이 나오게 하기위애선 js에서 만 가능하며 
+//아래와 같은 방법으로 사용할수있다 단 대상은 1명 
+		screen.addEventListener("transitionend",function(){
+			content
+			.style
+			.display = "block";
+		});
+		screen.onclick=function(){
+			divc.classList.remove("show");
+			content
+			.style
+			.display = "none";
+		}
 	
 	});
+
+// ex10--애니메이션 -효과넣기----------------------------------
+
+//css에서 할수있는것은 css에서하는것이 더 바람직하다.
+window.addEventListener("load",function(){
+	var section = this.document.querySelector("#ex10");
+	var delbtn = section.querySelector(".del-button");
+	var container = section.querySelector(".container");
+	var box = section.querySelector(".box");
+
+	delbtn.onclick=function(){
+		console.group("test");
+		box.classList.add("ani-slide-open");
+
+		box.addEventListener("animationend",function(){
+			box.remove();
+			//box.parentElement.remove();
+		
+		});
+	
+	};
+
+});
+//ex11-----------------------------------------------------
+window.addEventListener("load",function(){
+	var section = this.document.querySelector("#ex11");
+	var goBtn = section.querySelector(".go-button");
+	var container = section.querySelector(".container1");
+
+	goBtn.onclick=function(){
+		//var boxes = container.querySelectorAll("div");
+		var boxes = container.children;
+		//랜덤함수 가져오는 함수  수학 math객체
+	
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * Math.floor(max));
+		  }	
+		for(var i = 0; i<boxes.length; i++){
+			boxes[i].style.left = getRandomInt(600)+"px";
+			boxes[i].style.top = getRandomInt(400)+"px";
+		}
+	};
+
+
+
+	// var request = new XMLHttpRequest();
+	// request.open("GET","/notice/list-ajax?p=1",false);
+	// request.send(); 
+	// post 방법
+	// var data ="x=1&y=2&x=3&y=3";
+	// var request = new XMLHttpRequest();
+	// request.open("POST","/notice/list-ajax?p=1",false);
+	// request.send(ajax);
+
+	// false는 비동기가 아니다 라는 뜻이다.
+	// 동기화 는 줄을 세워서 일한다 (상대방 한번 나한번 )
+	// 비동기는 병렬로 일한다
+	// 파일전송 방법은 아직 안배움. 
+});
+
+window.addEventListener("load",function(){
+	var section = this.document.querySelector("#ex12");
+	var prev = section.querySelector(".prev-button");
+	var next = section.querySelector(".next-button");
+
+	var imglist = section.querySelector(".img-list");
+	var lis = imglist.querySelector("li");
+
+	prev.onclick = function(){
+		
+		var centerLi= imglist.querySelector(".center");
+		var rightLi = centerLi.nextElementSibling;
+		
+		centerLi.classList.remove("center");
+		centerLi.classList.add("left");
+		rightLi.classList.remove("right");
+		rightLi.classList.add("center");
+	};
+
+	next.onclick = function(){
+
+	};
+});
+
+window.addEventListener("load",function(){
+	var section =this.document.querySelector("#ex13");
+	var ul= section.querySelector(".tab-menu-list")
+	var div=section.querySelector(".content-list");
+	
+	ul.onclick = function(e){
+		e.preventDefault();
+		if(e.target.tagName !='A'){
+			return;
+		}
+		//아이디 뽑기 
+		// alert(e.target.href.indexOf("#"));
+		// alert(e.target.href.indexOf(e.target.href.length));
+		// alert(e.target.href.split("#")[1]);
+
+		var divs = div.children;
+		for(var i =0 ; i<divs.length; i++){
+			divs[i].classList.remove("current");
+		}
+		var contetntId = e.target.href.split("#")[1];
+
+		var contentIddiv = div.querySelector("#"+contetntId);
+		contentIddiv.classList.add("current");
+	};
+	
+});
