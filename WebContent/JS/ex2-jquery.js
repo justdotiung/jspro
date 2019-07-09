@@ -154,39 +154,62 @@ window.addEventListener("load",function(){
 
 //ex5----속성 다루기 ----------------------------------------------------
 // class 명은 id의 상대적으로 물고들어가기떄문에 id 지역내의 구분을 할수 있다 
-window.addEventListener("load",function(){
-	var section = this.document.querySelector("#ex5");
-	var button1 = section.querySelector(".btn1");
-	var button2 = section.querySelector(".btn2");
-	var img =section.querySelector("img");
+$(function(){
+	var section = $("#ex5");
+	var button1 = section.find(".btn1");
+	var button2 = section.find(".btn2");
+	var img =section.find("img");
 	var tid;
 	
-	button1.onclick=function(){
-		img.src="https://previews.123rf.com/images/bogumil/bogumil1301/bogumil130100007/17101750-%ED%91%B8%EB%A5%B8-%ED%95%98%EB%8A%98%EC%97%90-narew-%EA%B0%95-%E2%80%8B%E2%80%8B%EA%B5%AC%EB%A6%84%EA%B3%BC-%EC%97%AC%EB%A6%84-%ED%92%8D%EA%B2%BD.jpg";
-		console.log(img.width);
-		img.style.borderBottom ="3px solid blue" ;
-	 // img.style["borderBottom"] = "3px solid blue" ;
-	};
-
-	button2.onclick=function(){
-
-
-		//읽기 전용으로 되어있따. img.width
-		//이미지를 다루고 싶으면 style로써 들어가야 조작할수있게 된다.
-		var f1 = function(){
-
-			var width = img.width;
-			width -=3 ;
-			var im2 =  img.style.width=width+"px";
+	button1.click(function(){
+		img.attr("src","https://previews.123rf.com/images/bogumil/bogumil1301/bogumil130100007/17101750-%ED%91%B8%EB%A5%B8-%ED%95%98%EB%8A%98%EC%97%90-narew-%EA%B0%95-%E2%80%8B%E2%80%8B%EA%B5%AC%EB%A6%84%EA%B3%BC-%EC%97%AC%EB%A6%84-%ED%92%8D%EA%B2%BD.jpg");
+		// img.style["borderBottom"] = "3px solid blue" ;
+		//img.fadeOut(3000);
+	});
+	
+	button2.click(function(){
+		img.css("borderBottom","3px solid blue")
+		.animate({width:'200px',opacity:'0.5'},1000)
+		.delay(1000)
+		.animate({height:'100px',opacity:'0.5'},3000,
+			function(){	button1.animate({width:"200px"},1000);
+			});
+		//객체가 같으면 순서가 가능하다
+		//객체가 다르면 순서가 
 		
+		
+		/*
+		img.animate(
+			{
+				width:'200px',
+				opacity:'0.5'
+			},
+			1000);
+		img.animate(
+			{
+				
+				height:'100px',
+				opacity:'0.5'
+			},
+			3000);
+		button1.animate({
+			width:"200px"
+		});
+		*/
+		
+	/*s너비를 줄이는 애니메이션
+		var f1 = function(){
+			 var width = img.width();
+			// width -=3 ;
+			img.css("width","-=3");
+			console.log(width);
 			if(width <= 200)
 			window.clearInterval(tid);
 		}
-		
 		if(tid == undefined)
-		//60프레임 초당
-			tid = window.setInterval(f1,17);
-		}
+			tid =window.setInterval(f1,17);
+		*/
+		});
 });
 
 //ex5-1-예제연습--속성 다루기 ----------------------------------------------------
@@ -208,27 +231,22 @@ window.addEventListener("load",function(){
 
 // ex6-------노드 추가삭제 --------------------------------------------------------
 
-window.addEventListener("load",function(){
-	var section = this.document.querySelector("#ex6");
-	var addTextButton = section.querySelector(".btn-add-text");
-	var addElmentButton = section.querySelector(".btn-add-elment");
-	var container = section.querySelector(".container");
+$(function(){
+	var section = $("#ex6");
+	var addTextButton = section.find(".btn-add-text");
+	var addElmentButton = section.find(".btn-add-elment");
+	var container = section.find(".container");
 
-	addElmentButton.onclick = function(){
-		console.log("test");
-		var el = document.createElement("div");
-		el.className = "box";
-
-		container.appendChild(el);
-	};
-
-	this.console.log(addTextButton.onclick);
-		addTextButton.onclick =function(){
-			console.log("test");
-
-		var textNode= document.createTextNode("안녕하세요");
-		container.appendChild(textNode);
-		};
+	addElmentButton.click(function(){
+		var el = $("<div>");
+		el
+			.addClass("box")
+			.appendTo(container);
+		//container.append(el);
+	});
+	addTextButton.click(function(){
+		container.append('안녕하세요');
+	});
 });
 // ex7--- 노드 조작하기 맨땅 DOM조작-#1 appendChild --------------------------------------------
 
@@ -454,11 +472,11 @@ window.addEventListener("load",function(){
 
 // ex7-1 ------노드조작 뎀플릿 을 이용 DOM 조작 2 을 이용한 데이터 요청하기 --------------------
 window.addEventListener("load",function(){
-	/*
 		var section = this.document.querySelector("#ex7");
 		var noticeTBody = section.querySelector(".notice tbody");
 		var loadButton = section.querySelector(".btn-load");
 	
+		/*
 		var notices = [
 			{
 				id:"6",
@@ -482,38 +500,43 @@ window.addEventListener("load",function(){
 				hit:302
 			}
 		];
+		*/
 		
 		loadButton.onclick = function(){
 			//포멧문자열을 보내준 것이 필요하다
 
-			var request = new XMLHttpRequest();
-			request.open("GET","/notice/list-ajax?p=1",false);
-			request.send();
+		$
+			.ajax("/notice/list-ajax?p=1")
+			.done(function(aa){
+				alert(aa);
+			});
+		// 	var request = new XMLHttpRequest();
+		// 	request.open("GET","/notice/list-ajax?p=1",false);
+		// 	request.send();
 
-			alert(request.responseText);
-			var json = JSON.parse(request.responseText);
-			console.log(json[0].title)
-		//대체하기
-		//notices = json
-		//누적하기 기존의것을 두고 쌓인다.
-			notices= notices.concat(json);
+		// 	alert(request.responseText);
+		// 	var json = JSON.parse(request.responseText);
+		// 	console.log(json[0].title)
+		// //대체하기
+		// //notices = json
+		// //누적하기 기존의것을 두고 쌓인다.
+		 	notices= notices.concat(json);
 
-			var keys = Object.keys(notices[0]);
-			var html =[];
-			for(var j = 0; j <notices.length; j++){
-				html.push("<tr>");
-				for(var i = 0; i<5; i++){
-					var key=keys[i];
-					html.push("<td>"+notices[j][key]+"</td>");
-				}
-				html.push("</tr>");
-			}
+		 	var keys = Object.keys(notices[0]);
+		 	var html =[];
+		 	for(var j = 0; j <notices.length; j++){
+		 		html.push("<tr>");
+		 		for(var i = 0; i<5; i++){
+		 			var key=keys[i];
+		 			html.push("<td>"+notices[j][key]+"</td>");
+		 		}
+		 		html.push("</tr>");
+		 	}
 			
-			console.log(html.join("/"));
-			noticeTBody.innerHTML=html.join("");
+		 	console.log(html.join("/"));
+		 	noticeTBody.innerHTML=html.join("");
 				
 		};
-		*/
 	});
 
 	// ex8-trigger -----------------------------------------------
