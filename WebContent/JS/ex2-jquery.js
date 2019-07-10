@@ -506,10 +506,23 @@ window.addEventListener("load",function(){
 			//포멧문자열을 보내준 것이 필요하다
 
 		$
-			.ajax("/notice/list-ajax?p=1")
-			.done(function(aa){
-				alert(aa);
-			});
+			// .ajax("/notice/list-ajax?p=1")
+			// .done(function(aa){
+			// 	alert(aa);
+			// });
+//			.ajax({
+//				dataType:"json",
+//				url:"/notice/list-ajax?p=1",
+//				complete:function(request, status){
+//					alert(request.responseText);
+//				}
+//			}).done(function(data){
+//				alert(data[0].title);
+//			}) 
+		.getJSON("/notice/list-ajax?p=1")
+		.done(function(data){
+				alert(data[0].title);
+		});
 		// 	var request = new XMLHttpRequest();
 		// 	request.open("GET","/notice/list-ajax?p=1",false);
 		// 	request.send();
