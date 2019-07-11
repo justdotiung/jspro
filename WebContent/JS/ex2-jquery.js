@@ -71,43 +71,6 @@ $(function(){
 
 
 
-// ex4----노드의 선택방법 2-1-------------------------------------------------
-/*
-window.addEventListener("load",function(){
-	
-	var section = this.document.getElementById("ex4");
-	//childnodes 로 선택 복수형 배열임 
-	var button = section.childNodes[1];
-	//텍스트 노드도 읽어오게된다. 노드타입으로 1,3을 구분해서 해결방법 찾기
-	this.console.log(button.nodeType);
-	var ul=section.childNodes[3];
-	var lis=ul.getElementsByTagName("li");
-
-	button.onclick= function(){
-		console.log("test");
-		lis[3].remove();
-	};
-});
-*/
-
-// ex4----노드의 선택방법 2-2--------------------------------------------------
-/*
-window.addEventListener("load",function(){
-	
-	var section = this.document.getElementById("ex4");
-	var button = section.children[0];
-	this.console.log(button.nodeType);
-	var ul=section.children[1];
-	//ul의 자식노드들이기때문에 children사용.
-	var lis=ul.children;
-
-	button.onclick= function(){
-		console.log("test");
-		lis[3].remove();
-	};
-});
-*/
-
 // ex4----노드의 선택방법 3--------------------------------------------------
 
 
@@ -127,30 +90,6 @@ window.addEventListener("load",function(){
 
 // ex4----노드의 선택방법 4---최신 브라우져가 만 적용가능-----------------------------------------------
 
-// window.addEventListener("load",function(){
-	
-// 	var section = this.document.getElementById("ex4");
-// 		section = this.document.querySelector("#ex4");
-	
-// 	var button = this.document.querySelector("#ex4>input");
-// 	var ul= section.querySelector("ul");
-// 	//api에서의 기능
-// 	//메모리에서는 그대로 있고 보여지는 부분(화면)에서만 연결이 끊어진것으로 다음 노드가 삭제가 안된다.
-// 	var lis=ul.querySelectorAll("li");
-// 	this.console.log(lis);
-// 	//플랫폼에서의 기능 모두가 다르다.
-// 	//메모리에서의 삭제는 알아서 참조가 안된다면 gc의해서 수거해간다.
-// 	//var lis = ul.children;
-// 	this.console.log(lis);
-// 	this.console.log(button.nodeType);
-	
-// 	button.onclick= function(){
-// 		console.log("test");
-// 		lis[3].remove();
-// 		ul.appendChild(lis[3]);
-// 		console.log(lis[3]);
-// 	};
-// });
 
 //ex5----속성 다루기 ----------------------------------------------------
 // class 명은 id의 상대적으로 물고들어가기떄문에 id 지역내의 구분을 할수 있다 
@@ -174,41 +113,7 @@ $(function(){
 		.animate({height:'100px',opacity:'0.5'},3000,
 			function(){	button1.animate({width:"200px"},1000);
 			});
-		//객체가 같으면 순서가 가능하다
-		//객체가 다르면 순서가 
-		
-		
-		/*
-		img.animate(
-			{
-				width:'200px',
-				opacity:'0.5'
-			},
-			1000);
-		img.animate(
-			{
-				
-				height:'100px',
-				opacity:'0.5'
-			},
-			3000);
-		button1.animate({
-			width:"200px"
-		});
-		*/
-		
-	/*s너비를 줄이는 애니메이션
-		var f1 = function(){
-			 var width = img.width();
-			// width -=3 ;
-			img.css("width","-=3");
-			console.log(width);
-			if(width <= 200)
-			window.clearInterval(tid);
-		}
-		if(tid == undefined)
-			tid =window.setInterval(f1,17);
-		*/
+	
 		});
 });
 
@@ -251,258 +156,35 @@ $(function(){
 // ex7--- 노드 조작하기 맨땅 DOM조작-#1 appendChild --------------------------------------------
 
 window.addEventListener("load",function(){
-	/*
-	var section = this.document.querySelector("#ex7");
-	var noticeTBody = section.querySelector(".notice tbody");
-	var loadButton = section.querySelector(".btn-load");
 
-	var notices = [
-		{
-			id:"6",
-			title:"뉴렉쌤",
-			writerId:"newlec",
-			regDate:"2019-06-11",
-			hit:30
-		},
-		{
-			id:"7",
-			title:"뉴렉쌤1",
-			writerId:"newlec1",
-			regDate:"2019-06-11",
-			hit:301
-		},
-		{
-			id:"8",
-			title:"뉴렉쌤2",
-			writerId:"newlec2",
-			regDate:"2019-06-11",
-			hit:302
-		}
-	];
-
-	loadButton.onclick = function(){
-		console.log("test");
-		console.log(notices[1]);
-		//키값을 얻어올수 있는 방법. 
-		var keys = Object.keys(notices[0]);
-		//["id","title","writerId","regdate","hit"];
-		for(var j = 0 ; j<notices.length ;j++){
-			
-			var tr = document.createElement("tr");
-			
-			for(var i= 0; i<5; i++ ){
-				var td = document.createElement("td");
-				var key = keys[i];
-				var txt = document.createTextNode(notices[j][key]);
-				td.appendChild(txt);
-				tr.appendChild(td);
-			}
-			
-			noticeTBody.appendChild(tr);
-		}
-	};
-	*/
 });
 
 // ex7--- 노드 조작하기 맨땅 DOM조작--#1 append ----------------------------------------
 
 window.addEventListener("load",function(){
-	/*
-	var section = this.document.querySelector("#ex7");
-	var noticeTBody = section.querySelector(".notice tbody");
-	var loadButton = section.querySelector(".btn-load");
 
-	var notices = [
-		{
-			id:"6",
-			title:"뉴렉쌤",
-			writerId:"newlec",
-			regDate:"2019-06-11",
-			hit:30
-		},
-		{
-			id:"7",
-			title:"뉴렉쌤1",
-			writerId:"newlec1",
-			regDate:"2019-06-11",
-			hit:301
-		},
-		{
-			id:"8",
-			title:"뉴렉쌤2",
-			writerId:"newlec2",
-			regDate:"2019-06-11",
-			hit:302
-		}
-	];
-
-	loadButton.onclick = function(){
-		
-		var keys = Object.keys(notices[0]);
-		for(var j = 0 ; j<notices.length ;j++){
-			var tr = document.createElement("tr");
-			for(var i= 0; i<5; i++ ){
-				 var td = document.createElement("td");
-				 var key = keys[i];
-				// var txt = document.createTextNode(notices[j][key]);
-				td.append(notices[j][key]);
-				tr.append(td);
-			}
-			
-			noticeTBody.append(tr);
-		}
-	};
-	*/
 });
 
 // ex7-1 ------노드조작 뎀플릿 을 이용 DOM 조작------------------------------------------------
 window.addEventListener("load",function(){
-/*
-	var section = this.document.querySelector("#ex7");
-	var noticeTBody = section.querySelector(".notice tbody");
-	var loadButton = section.querySelector(".btn-load");
 
-	var notices = [
-		{
-			id:"6",
-			title:"뉴렉쌤",
-			writerId:"newlec",
-			regDate:"2019-06-11",
-			hit:30
-		},
-		{
-			id:"7",
-			title:"뉴렉쌤1",
-			writerId:"newlec1",
-			regDate:"2019-06-11",
-			hit:301
-		},
-		{
-			id:"8",
-			title:"뉴렉쌤2",
-			writerId:"newlec2",
-			regDate:"2019-06-11",
-			hit:302
-		}
-
-	];
-	
-	loadButton.onclick = function(){
-		// var keys = Object.keys(notices[0]);
-		// var html = "";
-		// for(var j = 0; j <notices.length; j++){
-		// 	var n="";
-		// 	for(var i = 0; i<5; i++){
-		// 		var key=keys[i];
-		// 		n += "<td>"+notices[j][key]+"</td>";
-		// 	}
-		// 	html += "<tr>"+n+"</tr>";
-		// }
-		// noticeTBody.innerHTML=html;
-		
-		var keys = Object.keys(notices[0]);
-		var html = "";
-		for(var j = 0; j <notices.length; j++){
-			html =""
-			for(var i = 0; i<5; i++){
-				var key=keys[i];
-				n += "<td>"+notices[j][key]+"</td>";
-			}
-			html += "<tr>"+n+"</tr>";
-		}
-		noticeTBody.innerHTML=html;
-		
-	};
-	*/	
 });
 
 
 // ex7-1 ------노드조작 뎀플릿 을 이용 DOM 조작 2 ------------------------------------------------
 window.addEventListener("load",function(){
-/*
-	var section = this.document.querySelector("#ex7");
-	var noticeTBody = section.querySelector(".notice tbody");
-	var loadButton = section.querySelector(".btn-load");
 
-	var notices = [
-		{
-			id:"6",
-			title:"뉴렉쌤",
-			writerId:"newlec",
-			regDate:"2019-06-11",
-			hit:30
-		},
-		{
-			id:"7",
-			title:"뉴렉쌤1",
-			writerId:"newlec1",
-			regDate:"2019-06-11",
-			hit:301
-		},
-		{
-			id:"8",
-			title:"뉴렉쌤2",
-			writerId:"newlec2",
-			regDate:"2019-06-11",
-			hit:302
-		}
-	];
-	
-	loadButton.onclick = function(){
-		
-		var keys = Object.keys(notices[0]);
-		var html =[];
-		for(var j = 0; j <notices.length; j++){
-			html.push("<tr>");
-			for(var i = 0; i<5; i++){
-				var key=keys[i];
-				html.push("<td>"+notices[j][key]+"</td>");
-			}
-			html.push("</tr>");
-		}
-		//join 함수의 구분자 변경으로 구분자를 없애줄수도 있다.
-		console.log(html.join("/"));
-		noticeTBody.innerHTML=html.join("");
-		//현재 객체 문자열을 바꾸면 객체 자체를 마련한 메서드
-		//각항목들을 쉼표로 구분해준다.
-			
-	};
-	*/
 });
 
 // ex7-1 ------노드조작 뎀플릿 을 이용 DOM 조작 2 을 이용한 데이터 요청하기 --------------------
-window.addEventListener("load",function(){
-		var section = this.document.querySelector("#ex7");
-		var noticeTBody = section.querySelector(".notice tbody");
-		var loadButton = section.querySelector(".btn-load");
+$(function(){
+		var section = $("#ex7");
+		var noticeTBody = section.find(".notice tbody");
+		var loadButton = section.find(".btn-load");
 	
-		/*
-		var notices = [
-			{
-				id:"6",
-				title:"뉴렉쌤",
-				writerId:"newlec",
-				regDate:"2019-06-11",
-				hit:30
-			},
-			{
-				id:"7",
-				title:"뉴렉쌤1",
-				writerId:"newlec1",
-				regDate:"2019-06-11",
-				hit:301
-			},
-			{
-				id:"8",
-				title:"뉴렉쌤2",
-				writerId:"newlec2",
-				regDate:"2019-06-11",
-				hit:302
-			}
-		];
-		*/
+		var page = 1;
 		
-		loadButton.onclick = function(){
+		loadButton.click(function(){
 			//포멧문자열을 보내준 것이 필요하다
 
 		$
@@ -519,10 +201,26 @@ window.addEventListener("load",function(){
 //			}).done(function(data){
 //				alert(data[0].title);
 //			}) 
-		.getJSON("/notice/list-ajax?p=1")
-		.done(function(data){
-				alert(data[0].title);
-		});
+//		.getJSON("/notice/list-ajax?p=1")
+//		.done(function(data){
+//				alert(data[0].title);
+//		});
+//		파일 불러오기 
+		.get("/admin/notice/list-partial?p="+page++)
+		.done(function(partial){
+				//alert(partial);
+				// noticeTBody.html(partial);
+				//noticeTBody.append(partial).fadeOut().fadeIn();
+				$(partial)
+					.css({opacity:0})
+					.appendTo(noticeTBody)
+					.animate({opacity:1});
+			});
+//				
+		// noticeTBody
+		// 	.fadeOut()
+		// 	.load("/admin/notice/list-partial?p="+ page++)
+		// 	.fadeIn();
 		// 	var request = new XMLHttpRequest();
 		// 	request.open("GET","/notice/list-ajax?p=1",false);
 		// 	request.send();
@@ -533,23 +231,23 @@ window.addEventListener("load",function(){
 		// //대체하기
 		// //notices = json
 		// //누적하기 기존의것을 두고 쌓인다.
-		 	notices= notices.concat(json);
-
-		 	var keys = Object.keys(notices[0]);
-		 	var html =[];
-		 	for(var j = 0; j <notices.length; j++){
-		 		html.push("<tr>");
-		 		for(var i = 0; i<5; i++){
-		 			var key=keys[i];
-		 			html.push("<td>"+notices[j][key]+"</td>");
-		 		}
-		 		html.push("</tr>");
-		 	}
-			
-		 	console.log(html.join("/"));
-		 	noticeTBody.innerHTML=html.join("");
-				
-		};
+//		 	notices= notices.concat(json);
+//
+//		 	var keys = Object.keys(notices[0]);
+//		 	var html =[];
+//		 	for(var j = 0; j <notices.length; j++){
+//		 		html.push("<tr>");
+//		 		for(var i = 0; i<5; i++){
+//		 			var key=keys[i];
+//		 			html.push("<td>"+notices[j][key]+"</td>");
+//		 		}
+//		 		html.push("</tr>");
+//		 	}
+//			
+//		 	console.log(html.join("/"));
+//		 	noticeTBody.innerHTML=html.join("");
+//				
+		});
 	});
 
 	// ex8-trigger -----------------------------------------------
