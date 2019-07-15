@@ -22,8 +22,17 @@
     height: 500px;
     border: 1px solid red;
     background:  lightblue;
+    
 }
 
 #upload .file-list{
     background: yellow;
+}
+
+#upload .drop-zone.valide{
+    background: lightgreen;
+}
+
+#upload .drop-zone.invalide{
+    background: red;
 }
